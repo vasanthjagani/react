@@ -1,6 +1,6 @@
 {
   "welcome": "Welcome to our application",
-  "greeting": "Hello, {name}!",
+  "greeting": "Hello my dear, {name}!",
   "buttons": {
     "submit": "Submit",
     "cancel": "Cancel"
