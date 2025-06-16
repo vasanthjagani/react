@@ -1,25 +1,33 @@
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import Backend from 'i18next-http-backend';
-import LanguageDetector from 'i18next-browser-languagedetector';
-
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
+ 
+import translationEN from "./locales/en/translations.json";
+import translationFR from "./locales/es/translations.json";
+// import translationSP from "./locales/sp/transulation.json";
+ 
+// the translations
+const resources = {
+  en: {
+    translation: translationEN,
+  },
+  es: {
+    translation: translationFR,
+  }, 
+  // sp: {
+  //   translation: translationSP,
+  // },
+};
+ 
 i18n
-  .use(Backend)
-  .use(LanguageDetector)
-  .use(initReactI18next)
+  .use(LanguageDetector) // Detects user language
+  .use(initReactI18next) // Passes i18n instance to react-i18next
   .init({
-    fallbackLng: 'en',
-    debug: process.env.NODE_ENV === 'development',
+    resources,
+    fallbackLng: "en", // use English if detected language is not available
     interpolation: {
-      escapeValue: false,
+      escapeValue: false, // React already escapes values
     },
-    backend: {
-      loadPath: 'http://localhost:8080/download/cristoplus/frontend-translations/{{lng}}/?format=json',
-    
-      customHeaders: {
-        Authorization: 'Token wlu_QJHIjd0jSyv58x8voo6Z0YWwR1MVLrHe45S8',
-      },
-    }
   });
-
+ 
 export default i18n;
