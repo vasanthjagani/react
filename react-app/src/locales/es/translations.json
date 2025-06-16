@@ -1,5 +1,5 @@
 {
-    "welcome": "Hola Mundo",
+    "welcome": "Bienvenido a nuestra aplicación",
     "greeting": "Hola querido, {name}!",
     "buttons": {
         "submit": "Enviar",
